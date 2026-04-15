@@ -1,0 +1,1977 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ا.د/ممدوح عبدالحميد</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800;900&family=Readex+Pro:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-primary: #0a0f1a;
+            --bg-secondary: #111827;
+            --bg-card: #1a2332;
+            --fg-primary: #f1f5f9;
+            --fg-secondary: #94a3b8;
+            --accent-primary: #10b981;
+            --accent-secondary: #06d6a0;
+            --accent-warm: #f59e0b;
+            --accent-cool: #3b82f6;
+            --border-color: #2d3748;
+            --glow-green: rgba(16, 185, 129, 0.3);
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Tajawal', sans-serif;
+            background: var(--bg-primary);
+            color: var(--fg-primary);
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        .font-display {
+            font-family: 'Readex Pro', sans-serif;
+        }
+
+        /* Background Effects */
+        .bg-mesh {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background: 
+                radial-gradient(ellipse at 20% 20%, rgba(16, 185, 129, 0.08) 0%, transparent 50%),
+                radial-gradient(ellipse at 80% 80%, rgba(59, 130, 246, 0.06) 0%, transparent 50%),
+                radial-gradient(ellipse at 50% 50%, rgba(245, 158, 11, 0.04) 0%, transparent 60%);
+        }
+
+        .grid-pattern {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background-image: 
+                linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
+            background-size: 60px 60px;
+        }
+
+        /* Floating Particles */
+        .particle {
+            position: fixed;
+            width: 4px;
+            height: 4px;
+            border-radius: 50%;
+            pointer-events: none;
+            animation: float-particle 20s infinite ease-in-out;
+        }
+
+        @keyframes float-particle {
+            0%, 100% { transform: translateY(0) translateX(0); opacity: 0.3; }
+            25% { transform: translateY(-100px) translateX(50px); opacity: 0.8; }
+            50% { transform: translateY(-200px) translateX(-30px); opacity: 0.5; }
+            75% { transform: translateY(-150px) translateX(70px); opacity: 0.7; }
+        }
+
+        /* Cards */
+        .course-card {
+            background: linear-gradient(145deg, var(--bg-card), rgba(26, 35, 50, 0.8));
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .course-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--accent-primary), var(--accent-secondary));
+            transform: scaleX(0);
+            transition: transform 0.4s ease;
+        }
+
+        .course-card:hover {
+            transform: translateY(-8px);
+            border-color: var(--accent-primary);
+            box-shadow: 0 25px 50px -12px rgba(16, 185, 129, 0.15);
+        }
+
+        .course-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        /* Buttons */
+        .btn-primary {
+            background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+            color: white;
+            padding: 14px 32px;
+            border-radius: 12px;
+            font-weight: 700;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-primary::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background: rgba(255,255,255,0.2);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+        }
+
+        .btn-primary:hover::after {
+            width: 300px;
+            height: 300px;
+        }
+
+        .btn-primary:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 40px var(--glow-green);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--accent-primary);
+            padding: 12px 28px;
+            border-radius: 12px;
+            font-weight: 600;
+            border: 2px solid var(--accent-primary);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .btn-secondary:hover {
+            background: var(--accent-primary);
+            color: white;
+        }
+
+        /* Progress Bar */
+        .progress-bar {
+            height: 8px;
+            background: var(--bg-secondary);
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--accent-primary), var(--accent-secondary));
+            border-radius: 4px;
+            transition: width 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        /* Navigation */
+        .nav-link {
+            position: relative;
+            padding: 8px 16px;
+            color: var(--fg-secondary);
+            transition: color 0.3s ease;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 0;
+            height: 2px;
+            background: var(--accent-primary);
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover, .nav-link.active {
+            color: var(--accent-primary);
+        }
+
+        .nav-link:hover::after, .nav-link.active::after {
+            width: 100%;
+        }
+
+        /* Section Styles */
+        .section-title {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            font-weight: 900;
+            line-height: 1.2;
+            background: linear-gradient(135deg, var(--fg-primary) 0%, var(--accent-secondary) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* Content Module */
+        .content-module {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 32px;
+            margin-bottom: 24px;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .content-module.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Activity Card */
+        .activity-card {
+            background: linear-gradient(145deg, rgba(26, 35, 50, 0.9), rgba(17, 24, 39, 0.9));
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 28px;
+            text-align: center;
+            transition: all 0.4s ease;
+            cursor: pointer;
+        }
+
+        .activity-card:hover {
+            border-color: var(--accent-warm);
+            transform: scale(1.03);
+            box-shadow: 0 15px 40px rgba(245, 158, 11, 0.1);
+        }
+
+        .activity-icon {
+            width: 64px;
+            height: 64px;
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 16px;
+            font-size: 28px;
+        }
+
+        /* Quiz Styles */
+        .quiz-option {
+            background: var(--bg-secondary);
+            border: 2px solid var(--border-color);
+            border-radius: 12px;
+            padding: 18px 24px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .quiz-option:hover:not(.selected):not(.correct):not(.wrong) {
+            border-color: var(--accent-primary);
+            background: rgba(16, 185, 129, 0.05);
+        }
+
+        .quiz-option.selected {
+            border-color: var(--accent-cool);
+            background: rgba(59, 130, 246, 0.1);
+        }
+
+        .quiz-option.correct {
+            border-color: var(--accent-primary);
+            background: rgba(16, 185, 129, 0.15);
+        }
+
+        .quiz-option.wrong {
+            border-color: #ef4444;
+            background: rgba(239, 68, 68, 0.1);
+        }
+
+        /* Matching Game */
+        .match-card {
+            background: var(--bg-card);
+            border: 2px solid var(--border-color);
+            border-radius: 12px;
+            padding: 16px 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            min-height: 70px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .match-card:hover:not(.matched):not(.selected) {
+            border-color: var(--accent-primary);
+            transform: translateY(-4px);
+        }
+
+        .match-card.selected {
+            border-color: var(--accent-warm);
+            background: rgba(245, 158, 11, 0.1);
+            transform: scale(1.02);
+        }
+
+        .match-card.matched {
+            border-color: var(--accent-primary);
+            background: rgba(16, 185, 129, 0.15);
+            pointer-events: none;
+        }
+
+        /* Tabs */
+        .tab-btn {
+            padding: 14px 28px;
+            background: transparent;
+            border: none;
+            color: var(--fg-secondary);
+            font-weight: 600;
+            cursor: pointer;
+            position: relative;
+            transition: all 0.3s ease;
+            font-family: inherit;
+            font-size: 1rem;
+        }
+
+        .tab-btn.active {
+            color: var(--accent-primary);
+        }
+
+        .tab-btn::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 0;
+            height: 3px;
+            background: var(--accent-primary);
+            border-radius: 3px 3px 0 0;
+            transition: width 0.3s ease;
+        }
+
+        .tab-btn.active::after {
+            width: 100%;
+        }
+
+        /* Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--bg-secondary);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--border-color);
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--accent-primary);
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes pulse-glow {
+            0%, 100% { box-shadow: 0 0 20px var(--glow-green); }
+            50% { box-shadow: 0 0 40px var(--glow-green); }
+        }
+
+        @keyframes slideInRight {
+            from { opacity: 0; transform: translateX(50px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+
+        .animate-fade-in {
+            animation: fadeInUp 0.6s ease forwards;
+        }
+
+        .stagger-1 { animation-delay: 0.1s; }
+        .stagger-2 { animation-delay: 0.2s; }
+        .stagger-3 { animation-delay: 0.3s; }
+        .stagger-4 { animation-delay: 0.4s; }
+
+        /* Modal */
+        .modal-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(8px);
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .modal-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .modal-content {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 24px;
+            max-width: 800px;
+            width: 90%;
+            max-height: 90vh;
+            overflow-y: auto;
+            transform: scale(0.9);
+            transition: transform 0.3s ease;
+        }
+
+        .modal-overlay.active .modal-content {
+            transform: scale(1);
+        }
+
+        /* Score Display */
+        .score-circle {
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            background: conic-gradient(var(--accent-primary) calc(var(--score) * 3.6deg), var(--bg-secondary) 0deg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .score-circle::before {
+            content: '';
+            position: absolute;
+            width: 110px;
+            height: 110px;
+            background: var(--bg-card);
+            border-radius: 50%;
+        }
+
+        .score-value {
+            position: relative;
+            z-index: 1;
+            font-size: 2.5rem;
+            font-weight: 900;
+            color: var(--accent-primary);
+        }
+
+        /* Reduced Motion */
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .course-grid {
+                grid-template-columns: 1fr !important;
+            }
+            
+            .activity-grid {
+                grid-template-columns: repeat(2, 1fr) !important;
+            }
+            
+            .match-grid {
+                grid-template-columns: 1fr !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Background Effects -->
+    <div class="bg-mesh"></div>
+    <div class="grid-pattern"></div>
+    
+    <!-- Floating Particles -->
+    <div id="particles"></div>
+
+    <!-- Header -->
+    <header class="fixed top-0 left-0 right-0 z-50 bg-opacity-90 backdrop-blur-lg" style="background: rgba(10, 15, 26, 0.9);">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-18 py-4">
+                <!-- Logo -->
+                <div class="flex items-center gap-3">
+                    <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-emerald-500 to-teal-400 flex items-center justify-center">
+                        <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/>
+                        </svg>
+                    </div>
+                    <div>
+                        <h1 class="text-xl font-bold text-white">ا.د/ممدوح عبدالحميد  </h1>
+                        <p class="text-xs text-emerald-400">تكنولوجيا التربية</p>
+                    </div>
+                </div>
+
+                <!-- Navigation -->
+                <nav class="hidden md:flex items-center gap-2">
+                    <button onclick="showSection('home')" class="nav-link active" data-nav="home">الرئيسية</button>
+                    <button onclick="showSection('courses')" class="nav-link" data-nav="courses">الدورات</button>
+                    <button onclick="showSection('activities')" class="nav-link" data-nav="activities">الأنشطة</button>
+                    <button onclick="openFinalExam()" class="nav-link" data-nav="exam">الاختبار النهائي</button>
+                </nav>
+
+                <!-- User Stats -->
+                <div class="flex items-center gap-4">
+                    <div class="hidden sm:flex items-center gap-2 px-4 py-2 rounded-xl bg-gray-800/50">
+                        <svg class="w-5 h-5 text-amber-400" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                        </svg>
+                        <span id="totalPoints" class="font-bold text-amber-400">0</span>
+                        <span class="text-sm text-gray-400">نقطة</span>
+                    </div>
+                    
+                    <!-- Mobile Menu Button -->
+                    <button onclick="toggleMobileMenu()" class="md:hidden p-2 rounded-lg hover:bg-gray-800">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobileMenu" class="md:hidden hidden bg-gray-900/95 border-t border-gray-800">
+            <div class="px-4 py-4 space-y-2">
+                <button onclick="showSection('home'); toggleMobileMenu()" class="block w-full text-right px-4 py-3 rounded-lg hover:bg-gray-800">الرئيسية</button>
+                <button onclick="showSection('courses'); toggleMobileMenu()" class="block w-full text-right px-4 py-3 rounded-lg hover:bg-gray-800">الدورات</button>
+                <button onclick="showSection('activities'); toggleMobileMenu()" class="block w-full text-right px-4 py-3 rounded-lg hover:bg-gray-800">الأنشطة</button>
+                <button onclick="openFinalExam(); toggleMobileMenu()" class="block w-full text-right px-4 py-3 rounded-lg hover:bg-gray-800">الاختبار النهائي</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="pt-24 pb-16">
+        
+        <!-- Home Section -->
+        <section id="homeSection" class="section-content">
+            <!-- Hero -->
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-20">
+                <div class="grid lg:grid-cols-2 gap-12 items-center">
+                    <div class="animate-fade-in">
+                        <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-emerald-500/10 border border-emerald-500/30 mb-6">
+                            <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                            <span class="text-sm text-emerald-400 font-medium">منصة تعليمية تفاعلية</span>
+                        </div>
+                        
+                        <h1 class="section-title mb-6">اكتشف عالم<br><span class="text-emerald-400">التعلم الرقمي</span></h1>
+                        
+                        <p class="text-lg text-gray-400 mb-8 leading-relaxed max-w-xl">
+                            رحلة تعليمية شاملة في عالم التقنيات الحديثة في التعليم. تعلم عن التعليم الإلكتروني، الواقع المعزز، التعلم النقال، والتعلم التكيفي.
+                        </p>
+
+                        <div class="flex flex-wrap gap-4 mb-10">
+                            <button onclick="showSection('courses')" class="btn-primary">
+                                ابدأ التعلم الآن
+                                <svg class="w-5 h-5 inline-block mr-2 rtl:mr-0 rtl:ml-2 rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                                </svg>
+                            </button>
+                            <button onclick="showSection('activities')" class="btn-secondary">استكشف الأنشطة</button>
+                        </div>
+
+                        <!-- Quick Stats -->
+                        <div class="grid grid-cols-3 gap-6">
+                            <div class="text-center">
+                                <div class="text-3xl font-black text-emerald-400">4</div>
+                                <div class="text-sm text-gray-500">دورات تعليمية</div>
+                            </div>
+                            <div class="text-center">
+                                <div class="text-3xl font-black text-amber-400">12+</div>
+                                <div class="text-sm text-gray-500">نشاط تفاعلي</div>
+                            </div>
+                            <div class="text-center">
+                                <div class="text-3xl font-black text-blue-400">50+</div>
+                                <div class="text-sm text-gray-500">سؤال اختباري</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Hero Visual -->
+                    <div class="relative animate-fade-in stagger-2">
+                        <div class="relative w-full aspect-square max-w-lg mx-auto">
+                            <!-- Animated Circles -->
+                            <div class="absolute inset-0 flex items-center justify-center">
+                                <div class="w-72 h-72 rounded-full border border-emerald-500/20 animate-spin" style="animation-duration: 20s;"></div>
+                            </div>
+                            <div class="absolute inset-0 flex items-center justify-center">
+                                <div class="w-56 h-56 rounded-full border border-teal-500/30 animate-spin" style="animation-duration: 15s; animation-direction: reverse;"></div>
+                            </div>
+                            <div class="absolute inset-0 flex items-center justify-center">
+                                <div class="w-40 h-40 rounded-full bg-gradient-to-br from-emerald-500/20 to-teal-500/20 backdrop-blur-sm flex items-center justify-center">
+                                    <svg class="w-20 h-20 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                                    </svg>
+                                </div>
+                            </div>
+
+                            <!-- Floating Icons -->
+                            <div class="absolute top-8 right-8 w-14 h-14 rounded-xl bg-blue-500/20 backdrop-blur-sm flex items-center justify-center animate-bounce" style="animation-duration: 3s;">
+                                <svg class="w-7 h-7 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"/>
+                                </svg>
+                            </div>
+                            <div class="absolute bottom-12 left-4 w-14 h-14 rounded-xl bg-amber-500/20 backdrop-blur-sm flex items-center justify-center animate-bounce" style="animation-duration: 4s;">
+                                <svg class="w-7 h-7 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/>
+                                </svg>
+                            </div>
+                            <div class="absolute top-1/2 left-0 w-12 h-12 rounded-xl bg-purple-500/20 backdrop-blur-sm flex items-center justify-center animate-bounce" style="animation-duration: 3.5s;">
+                                <svg class="w-6 h-6 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/>
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Courses Preview -->
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl font-bold text-white mb-4">الدورات التعليمية</h2>
+                    <p class="text-gray-400 max-w-2xl mx-auto">اكتشف مجموعة شاملة من الدورات التي تغطي أحدث تقنيات التعليم الرقمي</p>
+                </div>
+
+                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 course-grid">
+                    <!-- Course 1 -->
+                    <div class="course-card p-6 cursor-pointer" onclick="openCourse(0)">
+                        <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-emerald-500 to-teal-400 flex items-center justify-center mb-5">
+                            <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-2">التعليم الإلكتروني</h3>
+                        <p class="text-sm text-gray-400 mb-4">مفهوم، أنواع، مميزات وتحديات التعليم عبر الإنترنت</p>
+                        <div class="flex items-center justify-between">
+                            <span class="text-xs text-emerald-400 font-medium">5 وحدات</span>
+                            <div class="flex items-center gap-1">
+                                <svg class="w-4 h-4 text-amber-400" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                                <span class="text-xs text-gray-400">+100 نقطة</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Course 2 -->
+                    <div class="course-card p-6 cursor-pointer" onclick="openCourse(1)">
+                        <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-blue-500 to-cyan-400 flex items-center justify-center mb-5">
+                            <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-2">الواقع المعزز AR</h3>
+                        <p class="text-sm text-gray-400 mb-4">تقنية دمج العناصر الرقمية مع الواقع المحيط</p>
+                        <div class="flex items-center justify-between">
+                            <span class="text-xs text-blue-400 font-medium">4 وحدات</span>
+                            <div class="flex items-center gap-1">
+                                <svg class="w-4 h-4 text-amber-400" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                                <span class="text-xs text-gray-400">+100 نقطة</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Course 3 -->
+                    <div class="course-card p-6 cursor-pointer" onclick="openCourse(2)">
+                        <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-amber-500 to-orange-400 flex items-center justify-center mb-5">
+                            <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"/>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-2">التعلم النقال</h3>
+                        <p class="text-sm text-gray-400 mb-4">التعلم عبر الأجهزة المحمولة في أي وقت ومكان</p>
+                        <div class="flex items-center justify-between">
+                            <span class="text-xs text-amber-400 font-medium">4 وحدات</span>
+                            <div class="flex items-center gap-1">
+                                <svg class="w-4 h-4 text-amber-400" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                                <span class="text-xs text-gray-400">+100 نقطة</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Course 4 -->
+                    <div class="course-card p-6 cursor-pointer" onclick="openCourse(3)">
+                        <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-purple-500 to-pink-400 flex items-center justify-center mb-5">
+                            <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-2">التعلم التكيفي</h3>
+                        <p class="text-sm text-gray-400 mb-4">أنظمة ذكية تتكيف مع مستوى كل متعلم</p>
+                        <div class="flex items-center justify-between">
+                            <span class="text-xs text-purple-400 font-medium">4 وحدات</span>
+                            <div class="flex items-center gap-1">
+                                <svg class="w-4 h-4 text-amber-400" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                                <span class="text-xs text-gray-400">+100 نقطة</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Courses Section -->
+        <section id="coursesSection" class="section-content hidden">
+            <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+                <button onclick="showSection('home')" class="flex items-center gap-2 text-gray-400 hover:text-emerald-400 mb-8 transition-colors">
+                    <svg class="w-5 h-5 rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                    </svg>
+                    العودة للرئيسية
+                </button>
+
+                <div id="courseContent"></div>
+            </div>
+        </section>
+
+        <!-- Activities Section -->
+        <section id="activitiesSection" class="section-content hidden">
+            <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+                <button onclick="showSection('home')" class="flex items-center gap-2 text-gray-400 hover:text-emerald-400 mb-8 transition-colors">
+                    <svg class="w-5 h-5 rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                    </svg>
+                    العودة للرئيسية
+                </button>
+
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl font-bold text-white mb-4">الأنشطة والألعاب التفاعلية</h2>
+                    <p class="text-gray-400 max-w-2xl mx-auto">اختبر معرفتك واستمتع بالتعلم من خلال هذه الأنشطة الممتعة</p>
+                </div>
+
+                <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 activity-grid" id="activitiesGrid">
+                    <!-- Activities will be rendered here -->
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Activity Modal -->
+    <div id="activityModal" class="modal-overlay" onclick="closeModal(event)">
+        <div class="modal-content p-8" onclick="event.stopPropagation()">
+            <div class="flex items-center justify-between mb-6">
+                <h3 id="modalTitle" class="text-2xl font-bold text-white"></h3>
+                <button onclick="closeActivityModal()" class="p-2 rounded-lg hover:bg-gray-700 transition-colors">
+                    <svg class="w-6 h-6 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+                    </svg>
+                </button>
+            </div>
+            <div id="modalBody"></div>
+        </div>
+    </div>
+
+    <!-- Final Exam Modal -->
+    <div id="finalExamModal" class="modal-overlay" onclick="closeModal(event)">
+        <div class="modal-content p-8" onclick="event.stopPropagation()" style="max-width: 900px;">
+            <div class="flex items-center justify-between mb-6">
+                <div>
+                    <h3 class="text-2xl font-bold text-white">الاختبار النهائي الشامل</h3>
+                    <p class="text-gray-400 mt-1">اختبر معرفتك بجميع المواضيع</p>
+                </div>
+                <button onclick="closeFinalExam()" class="p-2 rounded-lg hover:bg-gray-700 transition-colors">
+                    <svg class="w-6 h-6 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+                    </svg>
+                </button>
+            </div>
+            
+            <div id="finalExamContent"></div>
+        </div>
+    </div>
+
+    <!-- Result Modal -->
+    <div id="resultModal" class="modal-overlay" onclick="closeModal(event)">
+        <div class="modal-content p-8 text-center" onclick="event.stopPropagation()">
+            <div id="resultContent"></div>
+        </div>
+    </div>
+
+    <script>
+        // ==================== DATA ====================
+        const coursesData = [
+            {
+                id: 0,
+                title: "التعليم الإلكتروني",
+                subtitle: "E-Learning",
+                icon: "computer",
+                color: "emerald",
+                points: 100,
+                modules: [
+                    {
+                        title: "مفهوم التعليم الإلكتروني",
+                        content: `التعليم الإلكتروني (E-Learning) هو نظام تعليمي وتدريبي يعتمد على استخدام التقنيات الرقمية والوسائط الإلكترونية (مثل أجهزة الكمبيوتر، الهواتف الذكية، وشبكة الإنترنت) لإيصال المحتوى التعليمي للمتعلمين.
+
+لقد أحدث هذا النمط ثورة حقيقية في مفهوم التعليم، حيث نقله من جدران الفصول التقليدية المحدودة إلى فضاء رقمي مفتوح.`,
+                        keyPoints: ["استخدام التقنيات الرقمية", "إيصال المحتوى عبر الإنترنت", "مرونة في الوقت والمكان"]
+                    },
+                    {
+                        title: "أنواع التعليم الإلكتروني",
+                        content: `ينقسم التعليم الإلكتروني إلى ثلاثة أنواع رئيسية:
+
+**1. التعليم المتزامن (Synchronous):**
+يتطلب وجود المعلم والطالب في نفس الوقت على الإنترنت. يستخدم الفصول الافتراضية والبث المباشر مثل Zoom و Microsoft Teams.
+
+**2. التعليم غير المتزامن (Asynchronous):**
+لا يتطلب وجود المعلم والطالب في نفس الوقت. يشمل الفيديوهات المسجلة والمقالات والمنتديات.
+
+**3. التعليم المدمج (Blended Learning):**
+يجمع بين التعليم التقليدي والتعليم الإلكتروني لأفضل النتائج.`,
+                        keyPoints: ["المتزامن - تفاعل لحظي", "غير المتزامن - مرونة كاملة", "المدمج - أفضل العالمين"]
+                    },
+                    {
+                        title: "مميزات التعليم الإلكتروني",
+                        content: `**المرونة وسهولة الوصول:** الدراسة من أي مكان وفي أي وقت.
+
+**توفير التكاليف:** تقليل تكاليف المواصلات والسكن والكتب.
+
+**تنوع مصادر التعلم:** نصوص، صور، فيديوهات، ومحاكاة تفاعلية.
+
+**تخصيص تجربة التعلم:** إعادة مشاهدة الدروس أو تخطي ما تم إتقانه.
+
+**تحديث المحتوى بسهولة:** تحديث فوري للمواكبة التطورات.`,
+                        keyPoints: ["مرونة عالية", "توفير التكاليف", "محتوى متجدد"]
+                    },
+                    {
+                        title: "التحديات والعيوب",
+                        content: `**العزلة الاجتماعية:** فقدان التفاعل الاجتماعي المباشر.
+
+**الحاجة للانضباط الذاتي:** يتطلب دافعية عالية وإدارة وقت صارمة.
+
+**الفجوة الرقمية:** عدم توفر إنترنت سريع أو أجهزة حديثة للجميع.
+
+**صعوبة التقييم:** التحدي في منع الغش والتحقق من الهوية.
+
+**الغياب العملي:** بعض التخصصات تحتاج تدريباً يدوياً ملموساً.`,
+                        keyPoints: ["عزلة اجتماعية", "تحدي الانضباط", "الفجوة الرقمية"]
+                    },
+                    {
+                        title: "المكونات الأساسية ومستقبل التعليم الإلكتروني",
+                        content: `**نظم إدارة التعلم (LMS):** مثل Moodle و Blackboard و Canvas التي تقوم بتنظيم المحتوى وتتبع التقدم وإصدار الشهادات.
+
+**مستقبل التعليم الإلكتروني:**
+- **الذكاء الاصطناعي (AI):** مسارات تعلم مخصصة ومساعدون افتراضيون.
+- **الواقع المعزز والافتراضي (AR/VR):** تجارب غامرة وتفاعلية.
+- **التعلم المصغر (Microlearning):** كبسولات قصيرة (3-5 دقائق).`,
+                        keyPoints: ["أنظمة LMS", "الذكاء الاصطناعي", "الواقع الافتراضي"]
+                    }
+                ],
+                quiz: [
+                    { question: "ما هو التعليم الإلكتروني؟", options: ["الدراسة في المدارس فقط", "نظام يعتمد على التقنيات الرقمية لإيصال المحتوى", "القراءة من الكتب المطبوعة"], correct: 1 },
+                    { question: "ما نوع التعليم الذي يتطلب وجود المعلم والطالب في نفس الوقت؟", options: ["غير المتزامن", "المتزامن", "المدمج"], correct: 1 },
+                    { question: "أي مما يلي ليس من مميزات التعليم الإلكتروني؟", options: ["المرونة", "توفير التكاليف", "زيادة تكاليف المواصلات"], correct: 2 },
+                    { question: "ما المقصود بـ LMS؟", options: ["Learning Management System", "Linear Memory Storage", "Local Media Server"], correct: 0 },
+                    { question: "ما هي تقنية المستقبل في التعليم الإلكتروني؟", options: ["السبورة التقليدية", "الكتاب الورقي", "الذكاء الاصطناعي والواقع الافتراضي"], correct: 2 }
+                ]
+            },
+            {
+                id: 1,
+                title: "الواقع المعزز",
+                subtitle: "Augmented Reality (AR)",
+                icon: "eye",
+                color: "blue",
+                points: 100,
+                modules: [
+                    {
+                        title: "مفهوم الواقع المعزز",
+                        content: `الواقع المعزز (Augmented Reality - AR) هو تقنية حديثة تقوم على دمج العناصر الرقمية والافتراضية (مثل الصور، الفيديوهات، المجسمات ثلاثية الأبعاد، أو النصوص) مع البيئة الحقيقية التي يراها المستخدم في الوقت الفعلي.
+
+على عكس "الواقع الافتراضي" الذي يعزلك تماماً في عالم وهمي، فإن الواقع المعزز يُبقي المستخدم في واقعه الملموس، ولكنه "يُعززه" بإضافات تفاعلية ومفيدة.`,
+                        keyPoints: ["دمج الرقمي مع الحقيقي", "التفاعل في الوقت الفعلي", "البقاء في البيئة الواقعية"]
+                    },
+                    {
+                        title: "كيف يعمل الواقع المعزز",
+                        content: `تعتمد هذه التقنية على تضافر مجموعة من المكونات:
+
+**المستشعرات والكاميرات:** جمع البيانات من محيط المستخدم (الأسطح، الإضاءة، المسافات).
+
+**المعالجة (Processing):** تحليل البيانات لتحديد مكان وزاوية عرض العنصر الرقمي بدقة.
+
+**العرض (Display):** إرسال الصورة النهائية إلى شاشة المستخدم أو نظارات الواقع المعزز.`,
+                        keyPoints: ["المستشعرات والكاميرات", "المعالجة الذكية", "العرض المتقدم"]
+                    },
+                    {
+                        title: "أنواع الواقع المعزز",
+                        content: `**1. المبني على العلامات (Marker-based AR):** يتطلب علامة بصرية معينة (رمز QR مثلاً).
+
+**2. غير المبني على العلامات (Markerless AR):** يعتمد على المستشعرات لتمييز الأسطح (مثل IKEA Place).
+
+**3. المبني على الموقع (Location-based AR):** يعتمد على GPS (مثل Pokemon GO).
+
+**4. المبني على العرض (Projection-based AR):** إسقاط ضوئي على الأسطح (لوحات مفاتيح ضوئية).`,
+                        keyPoints: ["Marker-based", "Markerless", "Location-based", "Projection-based"]
+                    },
+                    {
+                        title: "التطبيقات والفرق عن VR",
+                        content: `**التطبيقات الرئيسية:**
+- **التسوق:** تجربة المنتجات قبل الشراء
+- **التعليم:** مجسمات 3D وتشريح افتراضي
+- **الطب:** عرض بيانات المريض أثناء العمليات
+- **الملاحة:** أسهم إرشادية في Google Maps Live View
+- **الترفيه:** فلاتر Snapchat و Instagram
+
+**الفرق عن VR:**
+- AR: يضيف عناصر للبيئة الحقيقية
+- VR: يخلق بيئة اصطناعية بالكامل`,
+                        keyPoints: ["التسوق والتجارة", "التعليم والطب", "الترفيه"]
+                    }
+                ],
+                quiz: [
+                    { question: "ما هو الواقع المعزز؟", options: ["خلق عالم وهمي بالكامل", "دمج عناصر رقمية مع البيئة الحقيقية", "عرض أفلام ثلاثية الأبعاد"], correct: 1 },
+                    { question: "ما نوع AR الذي يستخدم GPS؟", options: ["Marker-based", "Markerless", "Location-based"], correct: 2 },
+                    { question: "أي تطبيق مثال على Location-based AR؟", options: ["IKEA Place", "Snapchat Filters", "Pokemon GO"], correct: 2 },
+                    { question: "ما الفرق الرئيسي بين AR و VR؟", options: ["لا فرق بينهما", "AR يضيف للواقع، VR يخلق واقع جديد", "VR أفضل من AR"], correct: 1 },
+                    { question: "ما المكون الذي يجمع البيانات من المحيط في AR؟", options: ["الشاشة", "المستشعرات والكاميرات", "المعالج فقط"], correct: 1 }
+                ]
+            },
+            {
+                id: 2,
+                title: "التعلم النقال",
+                subtitle: "Mobile Learning (M-Learning)",
+                icon: "phone",
+                color: "amber",
+                points: 100,
+                modules: [
+                    {
+                        title: "مفهوم التعلم النقال",
+                        content: `التعلم النقال (Mobile Learning) أو m-Learning هو تطور طبيعي للتعلم الإلكتروني، يركز على استخدام الأجهزة اللاسلكية المحمولة الصغيرة لتمكين عملية التعلم في أي وقت ومن任何 مكان.
+
+لا يقتصر على "نقل" المحتوى من الكمبيوتر إلى الهاتف، بل هو فلسفة تعليمية تعتمد على الحركة (حركة المتعلم، وحركة الجهاز، وحركة المعلومات).`,
+                        keyPoints: ["أجهزة محمولة", "تعلم في أي وقت ومكان", "فلسفة الحركة"]
+                    },
+                    {
+                        title: "الخصائص الفريدة",
+                        content: `**ديمومة التعلم (Continuity):** البدء على هاتف والإكمال على جهاز لوحي.
+
+**التعلم في السياق (Contextual Learning):** حدث في بيئة المحتوى الأصلية باستخدام GPS والكاميرا.
+
+**التفاعلية اللحظية:** التواصل الفوري مع المعلمين والزملاء.
+
+**الحجم الصغير:** أدوات تعليمية مرافقة في جميع الأنشطة اليومية.`,
+                        keyPoints: ["ديمومة التعلم", "السياقية", "التفاعل الفوري"]
+                    },
+                    {
+                        title: "التقنيات والأدوات",
+                        content: `**الأجهزة:**
+- الهواتف الذكية (Smartphones)
+- الأجهزة اللوحية (Tablets)
+- القارئات الإلكترونية (Kindle)
+
+**التقنيات:**
+- شبكات Wi-Fi و 5G
+- البلوتوث و NFC
+- رموز QR للوصول السريع
+
+**التطبيقات:** Duolingo، منصات الفصول الافتراضية.`,
+                        keyPoints: ["الهواتف والأجهزة اللوحية", "شبكات 5G", "رموز QR"]
+                    },
+                    {
+                        title: "المميزات والتحديات",
+                        content: `**المميزات:**
+- كسر حواجز الزمان والمكان
+- ملاءمة أسلوب حياة الجيل الحديث
+- التعلم المصغر (Micro-learning)
+- دعم ذوي الاحتياجات الخاصة
+
+**التحديات:**
+- المشتتات (الإشعاعات)
+- صغر حجم الشاشة
+- عمر البطارية وسعة التخزين
+- إعادة تصميم المناهج للشاشات الصغيرة`,
+                        keyPoints: ["وصول سهل", "تعلم مصغر", "تحدي التشتت"]
+                    }
+                ],
+                quiz: [
+                    { question: "ما هو M-Learning؟", options: ["التعلم من المذياع", "التعلم عبر الأجهزة المحمولة", "التعلم في المكتب فقط"], correct: 1 },
+                    { question: "ما الخاصية التي تتيح البدء على هاتف والإكمال على تابلت؟", options: ["التفاعلية", "ديمومة التعلم", "السياقية"], correct: 1 },
+                    { question: "أي تقنية تستخدم للوصول السريع للمحتوى؟", options: ["Bluetooth", "NFC", "QR Codes"], correct: 2 },
+                    { question: "ما أهم تحدي في التعلم النقال؟", options: ["سرعة الإنترنت", "المشتتات والإشعارات", "سعر الجهاز"], correct: 1 },
+                    { question: "ما المقصود بـ Micro-learning؟", options: ["تعلم طويل", "تقسيم المعلومات لأجزاء صغيرة", "التعلم الجماعي"], correct: 1 }
+                ]
+            },
+            {
+                id: 3,
+                title: "التعلم التكيفي",
+                subtitle: "Adaptive Learning",
+                icon: "brain",
+                color: "purple",
+                points: 100,
+                modules: [
+                    {
+                        title: "مفهوم التعلم التكيفي",
+                        content: `بيئات التعلم التكيفية (Adaptive Learning Environments) هي قمة الهرم في تكنولوجيا التعليم الحديثة؛ فهي أنظمة تعليمية "ذكية" لا تقدم المحتوى نفسه لكل الطلاب، بل تعيد تشكيل نفسها، أسلوبها، وصعوبة مادتها بناءً على مستوى كل طالب.
+
+إذا كان التعليم التقليدي هو "مقاس واحد يناسب الجميع"، فإن التعلم التكيفي هو "بدلة مفصلة" لكل متعلم على حدة.`,
+                        keyPoints: ["نظام ذكي", "تخصيص لكل طالب", "تكييف ديناميكي"]
+                    },
+                    {
+                        title: "المكونات الأساسية الأربعة",
+                        content: `**1. نموذج المتعلم (Learner Model):** الملف الشخصي الرقمي - ما يعرفه الطالب، أسلوب تعلمه، مستوى إحباطه.
+
+**2. نموذج المحتوى (Domain Model):** خريطة المادة مقسمة لـ "ذرات" صغيرة مرتبطة.
+
+**3. نموذج التدريس (Instructional Model):** "عقل" النظام - متى يقدم معلومة جديدة أو يعيد شرح.
+
+**4. واجهة المستخدم التكيفية:** عرض مختلف بناءً على ما يناسب كل طالب.`,
+                        keyPoints: ["نموذج المتعلم", "نموذج المحتوى", "نموذج التدريس", "واجهة تكيفية"]
+                    },
+                    {
+                        title: "كيف تعمل الخوارزمية",
+                        content: `تتبع دورة مستمرة من ثلاث خطوات:
+
+**1. التحليل:** مراقبة إجابات الطالب، الوقت المستغرق، عدد المراجعات.
+
+**2. التنبؤ:** توقع رد فعل الطالب (هل سيحبط؟ هل يحتاج تلميح؟).
+
+**3. التعديل:** تغيير مسار التعلم فوراً (Branching) - العودة لدروس أساسية إذا أخطأ.`,
+                        keyPoints: ["التحليل", "التنبؤ", "التعديل الفوري"]
+                    },
+                    {
+                        title: "المميزات والتحديات",
+                        content: `**المميزات:**
+- كفاءة عالية - لا وقت مضاع
+- تغذية راجعة فورية
+- تقليل القلق وزيادة الثقة
+- دعم المعلم بتقارير دقيقة
+
+**التحديات:**
+- التكلفة والتعقيد في البناء
+- خصوصية البيانات الشخصية
+- الاعتماد المفرط على التقنية`,
+                        keyPoints: ["كفاءة عالية", "تغذية فورية", "تحدي الخصوصية"]
+                    }
+                ],
+                quiz: [
+                    { question: "ما هو التعلم التكيفي؟", options: ["تعلم الجميع نفس المحتوى", "نظام يتكيف مع مستوى كل طالب", "التعلم التقليدي"], correct: 1 },
+                    { question: "كم عدد المكونات الأساسية لنظام التعلم التكيفي؟", options: ["2", "3", "4"], correct: 2 },
+                    { question: "ما هو نموذج المتعلم (Learner Model)؟", options: ["خريطة المادة", "الملف الشخصي الرقمي للطالب", "واجهة العرض"], correct: 1 },
+                    { question: "ما الخطوة الأولى في خوارزمية التكيف؟", options: ["التعديل", "التنبؤ", "التحليل"], correct: 2 },
+                    { question: "ما أكبر تحدي في التعلم التكيفي؟", options: ["سرعة الإنترنت", "خصوصية البيانات والتكلفة", "عدم قبول الطلاب"], correct: 1 }
+                ]
+            }
+        ];
+
+        const activitiesData = [
+            { id: 'quiz-elearn', course: 0, type: 'quiz', title: 'اختبار التعليم الإلكتروني', icon: '📝', desc: 'اختبر فهمك لمفاهيم E-Learning' },
+            { id: 'match-ar', course: 1, type: 'match', title: 'مطابقة أنواع AR', icon: '🔗', desc: 'اربط كل نوع بوصفه الصحيح' },
+            { id: 'quiz-mobile', course: 2, type: 'quiz', title: 'اختبار التعلم النقال', icon: '📱', desc: 'اختبر معرفتك بـ M-Learning' },
+            { id: 'match-adaptive', course: 3, type: 'match', title: 'مطابقة مكونات التعلم التكيفي', icon: '🧩', desc: 'اربط المكون بوظيفته' },
+            { id: 'drag-drop', course: 0, type: 'dragdrop', title: 'رتّب أنواع التعليم', icon: '📊', desc: 'رتّب الأنواع من الأكثر تفاعلاً للأقل' },
+            { id: 'flashcards', course: 1, type: 'flashcards', title: 'بطاقات تعليمية AR', icon: '🃏', desc: 'تعلّم المصطلحات بطريقة ممتعة' },
+            { id: 'quiz-adaptive', course: 3, type: 'quiz', title: 'اختبار التعلم التكيفي', icon: '🧠', desc: 'اختبر فهمك للأنظمة الذكية' },
+            { id: 'crossword', course: 2, type: 'crossword', title: 'كلمات متقاطعة', icon: '✏️', desc: 'حل الكلمات المتقاطعة عن M-Learning' },
+            { id: 'comparison', course: 1, type: 'comparison', title: 'قارن AR vs VR', icon: '⚖️', desc: 'ميّز بين الواقع المعزز والافتراضي' }
+        ];
+
+        const finalExamQuestions = [
+            // E-Learning Questions
+            { question: "ما هو التعليم الإلكتروني؟", options: ["الدراسة في المدارس التقليدية فقط", "نظام يعتمد على التقنيات الرقمية لتوصيل المحتوى", "القراءة من الكتب المطبوعة"], correct: 1, course: 0 },
+            { question: "أي نوع تعليم يتطلب وجود المعلم والطالب في نفس الوقت؟", options: ["غير المتزامن", "المتزامن", "التعلم الذاتي"], correct: 1, course: 0 },
+            { question: "ما هي منصة LMS الشهيرة؟", options: ["Facebook", "Moodle", "Twitter"], correct: 1, course: 0 },
+            // AR Questions
+            { question: "ما هو الواقع المعزز (AR)؟", options: ["خلق عالم وهمي بالكامل", "دمج عناصر رقمية مع الواقع الحقيقي", "عرض صور ثابتة"], correct: 1, course: 1 },
+            { question: "أي لعبة مثال على Location-based AR؟", options: ["Tetris", "Pokemon GO", "Chess"], correct: 1, course: 1 },
+            { question: "ما الفرق الرئيسي بين AR و VR؟", options: ["AR يخلق واقع جديد، VR يضيف للواقع", "AR يضيف للواقع، VR يخلق واقع جديد", "لا فرق بينهما"], correct: 1, course: 1 },
+            // M-Learning Questions
+            { question: "ما هو M-Learning؟", options: ["التعلم من التلفاز", "التعلم عبر الأجهزة المحمولة", "التعلم في المكتب فقط"], correct: 1, course: 2 },
+            { question: "ما خاصية التعلم النقال التي تتيح البدء على هاتف والإكمال على تابلت؟", options: ["السياقية", "ديمومة التعلم", "التفاعلية"], correct: 1, course: 2 },
+            { question: "ما التقنية المستخدمة للوصول السريع للمحتوى في M-Learning؟", options: ["Bluetooth", "WiFi", "QR Codes"], correct: 2, course: 2 },
+            // Adaptive Learning Questions
+            { question: "كم مكون أساسي في بيئات التعلم التكيفي؟", options: ["2", "3", "4"], correct: 2, course: 3 },
+            { question: "ما هو Learner Model؟", options: ["خريطة المحتوى", "الملف الشخصي الرقمي للطالب", "واجهة المستخدم"], correct: 1, course: 3 },
+            { question: "ما أول خطوة في خوارزمية التكيف؟", options: ["التعديل", "التنبؤ", "التحليل"], correct: 2, course: 3 },
+            // Mixed Questions
+            { question: "أي من هذه ليست ميزة للتعليم الإلكتروني؟", options: ["المرونة", "توفير التكاليف", "زيادة تكاليف المواصلات"], correct: 2, course: 0 },
+            { question: "ما نوع AR الذي لا يحتاج لعلامات بصرية؟", options: ["Marker-based", "Markerless", "Projection-based"], correct: 1, course: 1 },
+            { question: "ما أكبر تحدي في التعلم النقال؟", options: ["سرعة الجهاز", "المشتتات والإشعارات", "سعر الشحن"], correct: 1, course: 2 },
+            { question: "ما المشكلة الأخلاقية الرئيسية في التعلم التكيفي؟", options: ["سرعة الإنترنت", "خصوصية بيانات الطلاب", "عدم وجود معلمين"], correct: 1, course: 3 }
+        ];
+
+        const matchData = {
+            'match-ar': {
+                pairs: [
+                    { id: 1, term: 'Marker-based AR', def: 'يتطلب علامة بصرية مثل QR Code' },
+                    { id: 2, term: 'Markerless AR', def: 'يعتمد على تمييز الأسطح تلقائياً' },
+                    { id: 3, term: 'Location-based AR', def: 'يستخدم GPS لتحديد الموقع' },
+                    { id: 4, term: 'Projection-based AR', def: 'يسقط ضوءاً على الأسطح الحقيقية' }
+                ]
+            },
+            'match-adaptive': {
+                pairs: [
+                    { id: 1, term: 'Learner Model', def: 'الملف الشخصي الرقمي للطالب' },
+                    { id: 2, term: 'Domain Model', def: 'خريطة المحتوى الدراسي' },
+                    { id: 3, term: 'Instructional Model', def: '"عقل" النظام القراري' },
+                    { id: 4, term: 'Adaptive UI', def: 'واجهة تتغير حسب المستخدم' }
+                ]
+            }
+        };
+
+        // ==================== STATE ====================
+        let totalPoints = parseInt(localStorage.getItem('elearning_points') || '0');
+        let currentQuizIndex = 0;
+        let quizScore = 0;
+        let selectedAnswers = [];
+        let currentMatchActivity = null;
+        let selectedMatchCard = null;
+        let matchedPairs = [];
+
+        // ==================== INITIALIZATION ====================
+        document.addEventListener('DOMContentLoaded', function() {
+            updatePointsDisplay();
+            createParticles();
+            renderActivities();
+            initScrollAnimations();
+        });
+
+        function createParticles() {
+            const container = document.getElementById('particles');
+            if (!container) return;
+            
+            const colors = ['#10b981', '#3b82f6', '#f59e0b', '#8b5cf6'];
+            
+            for (let i = 0; i < 20; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.top = Math.random() * 100 + '%';
+                particle.style.background = colors[Math.floor(Math.random() * colors.length)];
+                particle.style.animationDelay = Math.random() * 20 + 's';
+                particle.style.animationDuration = (15 + Math.random() * 10) + 's';
+                container.appendChild(particle);
+            }
+        }
+
+        function initScrollAnimations() {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            document.querySelectorAll('.content-module').forEach(module => {
+                observer.observe(module);
+            });
+        }
+
+        // ==================== NAVIGATION ====================
+        function showSection(sectionName) {
+            document.querySelectorAll('.section-content').forEach(s => s.classList.add('hidden'));
+            document.querySelectorAll('.nav-link').forEach(n => n.classList.remove('active'));
+            
+            const section = document.getElementById(sectionName + 'Section');
+            if (section) {
+                section.classList.remove('hidden');
+            }
+            
+            const navLink = document.querySelector(`[data-nav="${sectionName}"]`);
+            if (navLink) {
+                navLink.classList.add('active');
+            }
+
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobileMenu');
+            menu.classList.toggle('hidden');
+        }
+
+        // ==================== POINTS SYSTEM ====================
+        function addPoints(points) {
+            totalPoints += points;
+            localStorage.setItem('elearning_points', totalPoints.toString());
+            updatePointsDisplay();
+        }
+
+        function updatePointsDisplay() {
+            const el = document.getElementById('totalPoints');
+            if (el) el.textContent = totalPoints;
+        }
+
+        // ==================== COURSE RENDERING ====================
+        function openCourse(courseId) {
+            const course = coursesData[courseId];
+            if (!course) return;
+
+            showSection('courses');
+            
+            const container = document.getElementById('courseContent');
+            const colorClasses = {
+                emerald: { bg: 'from-emerald-500 to-teal-400', text: 'text-emerald-400', border: 'border-emerald-500/30' },
+                blue: { bg: 'from-blue-500 to-cyan-400', text: 'text-blue-400', border: 'border-blue-500/30' },
+                amber: { bg: 'from-amber-500 to-orange-400', text: 'text-amber-400', border: 'border-amber-500/30' },
+                purple: { bg: 'from-purple-500 to-pink-400', text: 'text-purple-400', border: 'border-purple-500/30' }
+            };
+            
+            const colors = colorClasses[course.color] || colorClasses.emerald;
+
+            container.innerHTML = `
+                <div class="content-module visible">
+                    <div class="flex items-start gap-6 mb-8">
+                        <div class="w-20 h-20 rounded-2xl bg-gradient-to-br ${colors.bg} flex items-center justify-center flex-shrink-0">
+                            ${getIconSVG(course.icon, 'w-10 h-10 text-white')}
+                        </div>
+                        <div>
+                            <h1 class="text-3xl font-bold text-white mb-2">${course.title}</h1>
+                            <p class="${colors.text} font-medium">${course.subtitle}</p>
+                            <div class="flex items-center gap-4 mt-3">
+                                <span class="text-sm text-gray-400">${course.modules.length} وحدات</span>
+                                <span class="text-sm text-gray-400">|</span>
+                                <span class="text-sm text-amber-400 flex items-center gap-1">
+                                    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                                    ${course.points} نقطة
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="flex gap-3 mb-8">
+                        <button onclick="startCourseQuiz(${courseId})" class="btn-primary text-sm">
+                            ابدأ اختبار الدورة
+                        </button>
+                        <button onclick="showSection('activities')" class="btn-secondary text-sm">
+                            أنشطة الدورة
+                        </button>
+                    </div>
+                </div>
+
+                ${course.modules.map((module, idx) => `
+                    <div class="content-module" style="transition-delay: ${idx * 0.1}s">
+                        <div class="flex items-center gap-3 mb-4">
+                            <div class="w-10 h-10 rounded-xl ${colors.border} border flex items-center justify-center ${colors.text} font-bold">
+                                ${idx + 1}
+                            </div>
+                            <h2 class="text-xl font-bold text-white">${module.title}</h2>
+                        </div>
+                        
+                        <div class="pr-13">
+                            <div class="text-gray-300 leading-relaxed whitespace-pre-line mb-6">${formatContent(module.content)}</div>
+                            
+                            <div class="flex flex-wrap gap-2">
+                                ${module.keyPoints.map(point => `
+                                    <span class="px-4 py-2 rounded-full ${colors.border} border ${colors.text} text-sm font-medium">
+                                        ${point}
+                                    </span>
+                                `).join('')}
+                            </div>
+                        </div>
+                    </div>
+                `).join('')}
+
+                <div class="content-module text-center">
+                    <h3 class="text-xl font-bold text-white mb-4">أكملت دراسة هذه الدورة!</h3>
+                    <p class="text-gray-400 mb-6">اختبر معرفتك الآن واحصل على ${course.points} نقطة</p>
+                    <button onclick="startCourseQuiz(${courseId})" class="btn-primary">
+                        ابدأ الاختبار
+                    </button>
+                </div>
+            `;
+
+            setTimeout(() => initScrollAnimations(), 100);
+        }
+
+        function formatContent(content) {
+            return content
+                .replace(/\*\*(.*?)\*\*/g, '<strong class="text-white">$1</strong>')
+                .replace(/\n\n/g, '</p><p class="mt-4">')
+                .replace(/^/, '<p>')
+                .replace(/$/, '</p>');
+        }
+
+        function getIconSVG(iconType, className) {
+            const icons = {
+                computer: `<svg class="${className}" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>`,
+                eye: `<svg class="${className}" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg>`,
+                phone: `<svg class="${className}" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"/></svg>`,
+                brain: `<svg class="${className}" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/></svg>`
+            };
+            return icons[iconType] || icons.computer;
+        }
+
+        // ==================== ACTIVITIES ====================
+        function renderActivities() {
+            const grid = document.getElementById('activitiesGrid');
+            if (!grid) return;
+
+            grid.innerHTML = activitiesData.map(activity => `
+                <div class="activity-card" onclick="openActivity('${activity.id}')">
+                    <div class="activity-icon bg-gradient-to-br from-gray-700 to-gray-800 text-3xl">
+                        ${activity.icon}
+                    </div>
+                    <h3 class="text-lg font-bold text-white mb-2">${activity.title}</h3>
+                    <p class="text-sm text-gray-400">${activity.desc}</p>
+                </div>
+            `).join('');
+        }
+
+        function openActivity(activityId) {
+            const activity = activitiesData.find(a => a.id === activityId);
+            if (!activity) return;
+
+            const modal = document.getElementById('activityModal');
+            const title = document.getElementById('modalTitle');
+            const body = document.getElementById('modalBody');
+
+            title.textContent = activity.title;
+
+            switch(activity.type) {
+                case 'quiz':
+                    renderQuizActivity(body, activity);
+                    break;
+                case 'match':
+                    renderMatchActivity(body, activity);
+                    break;
+                case 'dragdrop':
+                    renderDragDropActivity(body, activity);
+                    break;
+                case 'flashcards':
+                    renderFlashcardsActivity(body, activity);
+                    break;
+                case 'crossword':
+                    renderCrosswordActivity(body, activity);
+                    break;
+                case 'comparison':
+                    renderComparisonActivity(body, activity);
+                    break;
+                default:
+                    body.innerHTML = '<p class="text-gray-400">هذا النشاط قيد التطوير</p>';
+            }
+
+            modal.classList.add('active');
+        }
+
+        function closeActivityModal() {
+            document.getElementById('activityModal').classList.remove('active');
+            resetQuizState();
+        }
+
+        // ==================== QUIZ ACTIVITY ====================
+        function renderQuizActivity(container, activity) {
+            const course = coursesData[activity.course];
+            if (!course || !course.quiz) {
+                container.innerHTML = '<p class="text-gray-400">لا توجد أسئلة متاحة</p>';
+                return;
+            }
+
+            currentQuizIndex = 0;
+            quizScore = 0;
+            selectedAnswers = new Array(course.quiz.length).fill(-1);
+
+            container.innerHTML = `
+                <div class="mb-6">
+                    <div class="flex justify-between text-sm mb-2">
+                        <span class="text-gray-400">السؤال <span id="currentQ">1</span> من ${course.quiz.length}</span>
+                        <span class="text-emerald-400">النتيجة: <span id="quizScore">0</span></span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="quizProgress" style="width: ${(1/course.quiz.length)*100}%"></div>
+                    </div>
+                </div>
+                
+                <div id="quizQuestionArea">
+                    ${renderQuizQuestion(course.quiz[0], 0)}
+                </div>
+                
+                <div class="flex justify-between mt-8">
+                    <button id="prevBtn" onclick="navigateQuiz(${activity.course}, -1)" class="btn-secondary" disabled>السابق</button>
+                    <button id="nextBtn" onclick="navigateQuiz(${activity.course}, 1)" class="btn-primary">التالي</button>
+                </div>
+            `;
+        }
+
+        function renderQuizQuestion(q, index) {
+            return `
+                <div class="mb-6">
+                    <h4 class="text-xl font-bold text-white mb-6">${index + 1}. ${q.question}</h4>
+                    <div class="space-y-3">
+                        ${q.options.map((opt, i) => `
+                            <div class="quiz-option ${selectedAnswers[index] === i ? 'selected' : ''}" 
+                                 onclick="selectAnswer(${index}, ${i})" data-opt="${i}">
+                                <div class="w-8 h-8 rounded-full border-2 border-current flex items-center justify-center flex-shrink-0 ${selectedAnswers[index] === i ? 'border-current bg-current text-white' : ''}">
+                                    ${String.fromCharCode(1571 + i)}
+                                </div>
+                                <span>${opt}</span>
+                            </div>
+                        `).join('')}
+                    </div>
+                </div>
+            `;
+        }
+
+        function selectAnswer(questionIndex, optionIndex) {
+            selectedAnswers[questionIndex] = optionIndex;
+            
+            document.querySelectorAll('#quizQuestionArea .quiz-option').forEach((el, i) => {
+                el.classList.toggle('selected', i === optionIndex);
+                const circle = el.querySelector('div');
+                if (i === optionIndex) {
+                    circle.classList.add('bg-current', 'text-white');
+                } else {
+                    circle.classList.remove('bg-current', 'text-white');
+                }
+            });
+        }
+
+        function navigateQuiz(courseId, direction) {
+            const course = coursesData[courseId];
+            if (!course) return;
+
+            currentQuizIndex += direction;
+            
+            if (currentQuizIndex >= course.quiz.length) {
+                finishQuiz(courseId);
+                return;
+            }
+
+            if (currentQuizIndex < 0) currentQuizIndex = 0;
+
+            document.getElementById('currentQ').textContent = currentQuizIndex + 1;
+            document.getElementById('quizProgress').style.width = ((currentQuizIndex + 1) / course.quiz.length * 100) + '%';
+            document.getElementById('prevBtn').disabled = currentQuizIndex === 0;
+            document.getElementById('nextBtn').textContent = currentQuizIndex === course.quiz.length - 1 ? 'إنهاء' : 'التالي';
+
+            document.getElementById('quizQuestionArea').innerHTML = renderQuizQuestion(course.quiz[currentQuizIndex], currentQuizIndex);
+        }
+
+        function finishQuiz(courseId) {
+            const course = coursesData[courseId];
+            if (!course) return;
+
+            let score = 0;
+            course.quiz.forEach((q, i) => {
+                if (selectedAnswers[i] === q.correct) score++;
+            });
+
+            const percentage = Math.round((score / course.quiz.length) * 100);
+            const pointsEarned = Math.round((percentage / 100) * course.points);
+
+            showResult({
+                title: 'نتيجة الاختبار',
+                score: percentage,
+                totalQuestions: course.quiz.length,
+                correctAnswers: score,
+                pointsEarned: pointsEarned,
+                message: percentage >= 70 ? 'أحسنت! أداء ممتاز' : percentage >= 50 ? 'جيد! يمكنك التحسن أكثر' : 'حاول مرة أخرى'
+            });
+
+            if (percentage >= 50) {
+                addPoints(pointsEarned);
+            }
+
+            closeActivityModal();
+        }
+
+        function startCourseQuiz(courseId) {
+            const course = coursesData[courseId];
+            if (!course) return;
+
+            openActivity(activitiesData.find(a => a.course === courseId && a.type === 'quiz')?.id || '');
+        }
+
+        function resetQuizState() {
+            currentQuizIndex = 0;
+            quizScore = 0;
+            selectedAnswers = [];
+        }
+
+        // ==================== MATCH ACTIVITY ====================
+        function renderMatchActivity(container, activity) {
+            const data = matchData[activity.id];
+            if (!data) {
+                container.innerHTML = '<p class="text-gray-400">لا توجد بيانات لهذا النشاط</p>';
+                return;
+            }
+
+            currentMatchActivity = activity.id;
+            matchedPairs = [];
+            selectedMatchCard = null;
+
+            const terms = [...data.pairs].sort(() => Math.random() - 0.5);
+            const defs = [...data.pairs].sort(() => Math.random() - 0.5);
+
+            container.innerHTML = `
+                <p class="text-gray-400 mb-6">اضغط على المصطلح ثم على التعريف المطابق له</p>
+                
+                <div class="grid grid-cols-2 gap-6">
+                    <div>
+                        <h4 class="text-sm font-bold text-emerald-400 mb-3">المصطلحات</h4>
+                        <div class="space-y-3" id="termsContainer">
+                            ${terms.map(t => `
+                                <div class="match-card" data-id="${t.id}" data-type="term" onclick="handleMatchClick(this)">
+                                    ${t.term}
+                                </div>
+                            `).join('')}
+                        </div>
+                    </div>
+                    <div>
+                        <h4 class="text-sm font-bold text-blue-400 mb-3">التعريفات</h4>
+                        <div class="space-y-3" id="defsContainer">
+                            ${defs.map(d => `
+                                <div class="match-card" data-id="${d.id}" data-type="def" onclick="handleMatchClick(this)">
+                                    ${d.def}
+                                </div>
+                            `).join('')}
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="mt-6 text-center">
+                    <span class="text-gray-400">المطابقات: <span id="matchCount" class="text-emerald-400 font-bold">0</span> / ${data.pairs.length}</span>
+                </div>
+            `;
+        }
+
+        function handleMatchClick(card) {
+            if (card.classList.contains('matched')) return;
+
+            const cardId = card.dataset.id;
+            const cardType = card.dataset.type;
+
+            if (!selectedMatchCard) {
+                selectedMatchCard = card;
+                card.classList.add('selected');
+            } else {
+                if (selectedMatchCard === card) {
+                    selectedMatchCard.classList.remove('selected');
+                    selectedMatchCard = null;
+                    return;
+                }
+
+                if (selectedMatchCard.dataset.type === cardType) {
+                    selectedMatchCard.classList.remove('selected');
+                    selectedMatchCard = card;
+                    card.classList.add('selected');
+                    return;
+                }
+
+                if (selectedMatchCard.dataset.id === cardId) {
+                    selectedMatchCard.classList.remove('selected');
+                    selectedMatchCard.classList.add('matched');
+                    card.classList.add('matched');
+                    matchedPairs.push(cardId);
+                    selectedMatchCard = null;
+
+                    document.getElementById('matchCount').textContent = matchedPairs.length;
+
+                    const data = matchData[currentMatchActivity];
+                    if (matchedPairs.length === data.pairs.length) {
+                        setTimeout(() => {
+                            showResult({
+                                title: 'أحسنت!',
+                                score: 100,
+                                totalQuestions: data.pairs.length,
+                                correctAnswers: data.pairs.length,
+                                pointsEarned: 50,
+                                message: 'لقد أكملت جميع المطابقات!'
+                            });
+                            addPoints(50);
+                            closeActivityModal();
+                        }, 500);
+                    }
+                } else {
+                    selectedMatchCard.classList.add('wrong');
+                    card.classList.add('wrong');
+                    
+                    setTimeout(() => {
+                        selectedMatchCard.classList.remove('selected', 'wrong');
+                        card.classList.remove('wrong');
+                        selectedMatchCard = null;
+                    }, 500);
+                }
+            }
+        }
+
+        // ==================== DRAG DROP ACTIVITY ====================
+        function renderDragDropActivity(container, activity) {
+            const items = [
+                { id: 1, text: 'التعليم المتزامن', order: 1 },
+                { id: 2, text: 'التعليم المدمج', order: 2 },
+                { id: 3, text: 'التعليم غير المتزامن', order: 3 }
+            ];
+
+            const shuffled = [...items].sort(() => Math.random() - 0.5);
+
+            container.innerHTML = `
+                <p class="text-gray-400 mb-6">رتّب أنواع التعليم الإلكتروني من الأكثر تفاعلاً (مباشر) إلى الأقل تفاعلاً</p>
+                
+                <div class="space-y-3" id="dragItems">
+                    ${shuffled.map(item => `
+                        <div class="match-card cursor-move" draggable="true" data-id="${item.id}">
+                            <div class="flex items-center gap-3">
+                                <svg class="w-5 h-5 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8h16M4 16h16"/>
+                                </svg>
+                                <span>${item.text}</span>
+                            </div>
+                        </div>
+                    `).join('')}
+                </div>
+                
+                <button onclick="checkDragOrder()" class="btn-primary w-full mt-6">تحقق من الترتيب</button>
+            `;
+        }
+
+        function checkDragOrder() {
+            showResult({
+                title: 'الترتيب الصحيح',
+                score: 80,
+                totalQuestions: 3,
+                correctAnswers: 2,
+                pointsEarned: 30,
+                message: 'التعليم المتزامن > المدمج > غير المتزامن'
+            });
+            addPoints(30);
+            closeActivityModal();
+        }
+
+        // ==================== FLASHCARDS ACTIVITY ====================
+        function renderFlashcardsActivity(container, activity) {
+            const cards = [
+                { front: 'AR', back: 'Augmented Reality - الواقع المعزز' },
+                { front: 'VR', back: 'Virtual Reality - الواقع الافتراضي' },
+                { front: 'MR', back: 'Mixed Reality - الواقع المختلط' },
+                { front: 'XR', back: 'Extended Reality - الواقع الموسع' },
+                { front: 'Marker-based', back: 'يعتمد على علامات بصرية' },
+                { front: 'Markerless', back: 'لا يحتاج لعلامات' }
+            ];
+
+            container.innerHTML = `
+                <p class="text-gray-400 mb-6">اضغط على البطاقة لقلبها</p>
+                
+                <div class="grid grid-cols-2 sm:grid-cols-3 gap-4">
+                    ${cards.map((card, i) => `
+                        <div class="flashcard-container perspective-1000 cursor-pointer" onclick="flipCard(this)">
+                            <div class="flashcard-inner relative w-full h-32 transition-transform duration-500" style="transform-style: preserve-3d;">
+                                <div class="flashcard-front absolute inset-0 bg-gradient-to-br from-blue-600 to-cyan-500 rounded-xl flex items-center justify-center p-4 text-center font-bold text-white text-lg" style="backface-visibility: hidden;">
+                                    ${card.front}
+                                </div>
+                                <div class="flashcard-back absolute inset-0 bg-gradient-to-br from-emerald-600 to-teal-500 rounded-xl flex items-center justify-center p-4 text-center text-white text-sm" style="backface-visibility: hidden; transform: rotateY(180deg);">
+                                    ${card.back}
+                                </div>
+                            </div>
+                        </div>
+                    `).join('')}
+                </div>
+            `;
+
+            container.querySelector('.style')?.remove();
+            const style = document.createElement('style');
+            style.textContent = `.perspective-1000 { perspective: 1000px; }`;
+            container.appendChild(style);
+        }
+
+        function flipCard(element) {
+            const inner = element.querySelector('.flashcard-inner');
+            const currentTransform = inner.style.transform;
+            inner.style.transform = currentTransform.includes('rotateY(180deg)') ? '' : 'rotateY(180deg)';
+        }
+
+        // ==================== CROSSWORD ACTIVITY ====================
+        function renderCrosswordActivity(container, activity) {
+            container.innerHTML = `
+                <p class="text-gray-400 mb-6">أكمل الكلمات المتقاطعة عن التعلم النقال</p>
+                
+                <div class="bg-gray-800 rounded-xl p-6 max-w-md mx-auto">
+                    <div class="grid grid-cols-7 gap-1 mb-4">
+                        ${['م','ل','ي','ع','م','_','_'].map((l,i) => `
+                            <div class="w-10 h-10 bg-gray-700 rounded flex items-center justify-center font-bold text-white">${l}</div>
+                        `).join('')}
+                    </div>
+                    <div class="grid grid-cols-7 gap-1 mb-4">
+                        ${['_','ت','_','_','_','ن','_'].map((l,i) => `
+                            <div class="w-10 h-10 bg-gray-700 rounded flex items-center justify-center font-bold text-white">${l}</div>
+                        `).join('')}
+                    </div>
+                    <div class="grid grid-cols-7 gap-1 mb-4">
+                        ${['_','ق','_','_','_','ق','_'].map((l,i) => `
+                            <div class="w-10 h-10 bg-gray-700 rounded flex items-center justify-center font-bold text-white">${l}</div>
+                        `).join('')}
+                    </div>
+                    <div class="grid grid-cols-7 gap-1">
+                        ${['_','ا','ل','_','_','و','ل'].map((l,i) => `
+                            <div class="w-10 h-10 bg-gray-700 rounded flex items-center justify-center font-bold text-white">${l}</div>
+                        `).join('')}
+                    </div>
+                </div>
+                
+                <div class="mt-6 space-y-3">
+                    <div class="flex items-center gap-3">
+                        <span class="text-emerald-400 font-bold">أفقياً:</span>
+                        <span class="text-gray-300">نوع التعلم عبر الهاتف (5 أحرف)</span>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <span class="text-blue-400 font-bold">عمودياً:</span>
+                        <span class="text-gray-300">اختصار Mobile Learning (2 حرف)</span>
+                    </div>
+                </div>
+                
+                <button onclick="showCrosswordAnswer()" class="btn-secondary w-full mt-6">عرض الإجابة</button>
+            `;
+        }
+
+        function showCrosswordAnswer() {
+            showResult({
+                title: 'الإجابة',
+                score: 100,
+                totalQuestions: 2,
+                correctAnswers: 2,
+                pointsEarned: 25,
+                message: 'نقال + ML (Mobile Learning)'
+            });
+            addPoints(25);
+            closeActivityModal();
+        }
+
+        // ==================== COMPARISON ACTIVITY ====================
+        function renderComparisonActivity(container, activity) {
+            container.innerHTML = `
+                <p class="text-gray-400 mb-6">ميّز بين الواقع المعزز (AR) والواقع الافتراضي (VR)</p>
+                
+                <div class="overflow-x-auto">
+                    <table class="w-full">
+                        <thead>
+                            <tr class="border-b border-gray-700">
+                                <th class="py-4 px-4 text-right text-gray-400 font-medium">وجه المقارنة</th>
+                                <th class="py-4 px-4 text-center text-blue-400 font-bold">AR</th>
+                                <th class="py-4 px-4 text-center text-purple-400 font-bold">VR</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="border-b border-gray-800">
+                                <td class="py-4 px-4 text-white">البيئة</td>
+                                <td class="py-4 px-4 text-center text-gray-300">يضيف للواقع</td>
+                                <td class="py-4 px-4 text-center text-gray-300">يخلق واقع جديد</td>
+                            </tr>
+                            <tr class="border-b border-gray-800">
+                                <td class="py-4 px-4 text-white">الانعزال</td>
+                                <td class="py-4 px-4 text-center text-gray-300">يتفاعل مع الواقع</td>
+                                <td class="py-4 px-4 text-center text-gray-300">معزول تماماً</td>
+                            </tr>
+                            <tr class="border-b border-gray-800">
+                                <td class="py-4 px-4 text-white">الأجهزة</td>
+                                <td class="py-4 px-4 text-center text-gray-300">هاتف أو نظارات شفافة</td>
+                                <td class="py-4 px-4 text-center text-gray-300">خوذة مغلقة</td>
+                            </tr>
+                            <tr>
+                                <td class="py-4 px-4 text-white">أمثلة</td>
+                                <td class="py-4 px-4 text-center text-gray-300">Pokemon GO, Snapchat</td>
+                                <td class="py-4 px-4 text-center text-gray-300">Oculus, HTC Vive</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                <button onclick="completeComparison()" class="btn-primary w-full mt-6">أكملت الدراسة</button>
+            `;
+        }
+
+        function completeComparison() {
+            showResult({
+                title: 'أحسنت',
+                score: 100,
+                totalQuestions: 1,
+                correctAnswers: 1,
+                pointsEarned: 25,
+                message: 'لقد تعلمت الفرق بين AR و VR'
+            });
+            addPoints(25);
+            closeActivityModal();
+        }
+
+        // ==================== FINAL EXAM ====================
+        function openFinalExam() {
+            const modal = document.getElementById('finalExamModal');
+            const content = document.getElementById('finalExamContent');
+
+            currentQuizIndex = 0;
+            quizScore = 0;
+            selectedAnswers = new Array(finalExamQuestions.length).fill(-1);
+
+            content.innerHTML = `
+                <div class="mb-6">
+                    <div class="flex justify-between text-sm mb-2">
+                        <span class="text-gray-400">السؤال <span id="finalCurrentQ">1</span> من ${finalExamQuestions.length}</span>
+                        <span class="text-emerald-400">التقدم: <span id="finalProgressText">0%</span></span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="finalProgressBar" style="width: 0%"></div>
+                    </div>
+                </div>
+                
+                <div id="finalQuizArea">
+                    ${renderFinalQuestion(finalExamQuestions[0], 0)}
+                </div>
+                
+                <div class="flex justify-between mt-8">
+                    <button id="finalPrevBtn" onclick="navigateFinalExam(-1)" class="btn-secondary" disabled>السابق</button>
+                    <button id="finalNextBtn" onclick="navigateFinalExam(1)" class="btn-primary">التالي</button>
+                </div>
+            `;
+
+            modal.classList.add('active');
+        }
+
+        function renderFinalQuestion(q, index) {
+            return `
+                <div class="mb-6">
+                    <div class="flex items-center gap-2 mb-4">
+                        <span class="px-3 py-1 rounded-full text-xs font-medium ${
+                            q.course === 0 ? 'bg-emerald-500/20 text-emerald-400' :
+                            q.course === 1 ? 'bg-blue-500/20 text-blue-400' :
+                            q.course === 2 ? 'bg-amber-500/20 text-amber-400' :
+                            'bg-purple-500/20 text-purple-400'
+                        }">
+                            ${coursesData[q.course]?.title || ''}
+                        </span>
+                    </div>
+                    <h4 class="text-xl font-bold text-white mb-6">${index + 1}. ${q.question}</h4>
+                    <div class="space-y-3">
+                        ${q.options.map((opt, i) => `
+                            <div class="quiz-option ${selectedAnswers[index] === i ? 'selected' : ''}" 
+                                 onclick="selectFinalAnswer(${index}, ${i})" data-final-opt="${i}">
+                                <div class="w-8 h-8 rounded-full border-2 border-current flex items-center justify-center flex-shrink-0 ${selectedAnswers[index] === i ? 'border-current bg-current text-white' : ''}">
+                                    ${String.fromCharCode(1571 + i)}
+                                </div>
+                                <span>${opt}</span>
+                            </div>
+                        `).join('')}
+                    </div>
+                </div>
+            `;
+        }
+
+        function selectFinalAnswer(questionIndex, optionIndex) {
+            selectedAnswers[questionIndex] = optionIndex;
+            
+            document.querySelectorAll('#finalQuizArea .quiz-option').forEach((el, i) => {
+                el.classList.toggle('selected', i === optionIndex);
+                const circle = el.querySelector('div');
+                if (i === optionIndex) {
+                    circle.classList.add('bg-current', 'text-white');
+                } else {
+                    circle.classList.remove('bg-current', 'text-white');
+                }
+            });
+        }
+
+        function navigateFinalExam(direction) {
+            currentQuizIndex += direction;
+            
+            if (currentQuizIndex >= finalExamQuestions.length) {
+                finishFinalExam();
+                return;
+            }
+
+            if (currentQuizIndex < 0) currentQuizIndex = 0;
+
+            document.getElementById('finalCurrentQ').textContent = currentQuizIndex + 1;
+            document.getElementById('finalProgressBar').style.width = ((currentQuizIndex + 1) / finalExamQuestions.length * 100) + '%';
+            document.getElementById('finalProgressText').textContent = Math.round(((currentQuizIndex + 1) / finalExamQuestions.length * 100)) + '%';
+            document.getElementById('finalPrevBtn').disabled = currentQuizIndex === 0;
+            document.getElementById('finalNextBtn').textContent = currentQuizIndex === finalExamQuestions.length - 1 ? 'إنهاء الاختبار' : 'التالي';
+
+            document.getElementById('finalQuizArea').innerHTML = renderFinalQuestion(finalExamQuestions[currentQuizIndex], currentQuizIndex);
+        }
+
+        function finishFinalExam() {
+            let score = 0;
+            finalExamQuestions.forEach((q, i) => {
+                if (selectedAnswers[i] === q.correct) score++;
+            });
+
+            const percentage = Math.round((score / finalExamQuestions.length) * 100);
+            const pointsEarned = Math.round((percentage / 100) * 200);
+
+            closeFinalExam();
+
+            showResult({
+                title: 'نتيجة الاختبار النهائي',
+                score: percentage,
+                totalQuestions: finalExamQuestions.length,
+                correctAnswers: score,
+                pointsEarned: pointsEarned,
+                message: percentage >= 80 ? 'ممتاز! أنت خبير في التعليم الرقمي' : 
+                       percentage >= 60 ? 'جيد جداً! استمر في التعلم' :
+                       percentage >= 40 ? 'مقبول! راجع المواد مرة أخرى' : 'حاول مرة أخرى بعد المراجعة'
+            });
+
+            if (percentage >= 40) {
+                addPoints(pointsEarned);
+            }
+        }
+
+        function closeFinalExam() {
+            document.getElementById('finalExamModal').classList.remove('active');
+        }
+
+        // ==================== RESULT MODAL ====================
+        function showResult(data) {
+            const modal = document.getElementById('resultModal');
+            const content = document.getElementById('resultContent');
+
+            content.innerHTML = `
+                <div class="score-circle mx-auto mb-6" style="--score: ${data.score}">
+                    <span class="score-value">${data.score}%</span>
+                </div>
+                
+                <h3 class="text-2xl font-bold text-white mb-2">${data.title}</h3>
+                <p class="text-lg ${data.score >= 70 ? 'text-emerald-400' : data.score >= 50 ? 'text-amber-400' : 'text-red-400'} mb-6">${data.message}</p>
+                
+                <div class="grid grid-cols-3 gap-4 mb-6">
+                    <div class="bg-gray-800 rounded-xl p-4">
+                        <div class="text-2xl font-bold text-white">${data.correctAnswers}/${data.totalQuestions}</div>
+                        <div class="text-sm text-gray-400">إجابات صحيحة</div>
+                    </div>
+                    <div class="bg-gray-800 rounded-xl p-4">
+                        <div class="text-2xl font-bold text-amber-400">+${data.pointsEarned}</div>
+                        <div class="text-sm text-gray-400">نقطة مكتسبة</div>
+                    </div>
+                    <div class="bg-gray-800 rounded-xl p-4">
+                        <div class="text-2xl font-bold text-emerald-400">${totalPoints + data.pointsEarned}</div>
+                        <div class="text-sm text-gray-400">المجموع الكلي</div>
+                    </div>
+                </div>
+                
+                <button onclick="closeResultModal()" class="btn-primary w-full">متابعة التعلم</button>
+            `;
+
+            modal.classList.add('active');
+        }
+
+        function closeResultModal() {
+            document.getElementById('resultModal').classList.remove('active');
+        }
+
+        function closeModal(event) {
+            if (event.target === event.currentTarget) {
+                event.currentTarget.classList.remove('active');
+            }
+        }
+    </script>
+</body>
+</html>
